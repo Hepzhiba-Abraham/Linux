@@ -1,0 +1,355 @@
+Linux Commands
+ 
+File and Directory Management
+******************************
+ls - Lists directory contents.
+ls - Basic list.
+ls -l - List with details.
+Example: ls -la Directory
+cd - Change the current directory.
+cd Directory - Changes to "Directory".
+Example: cd /home
+pwd - Print the current directory path.
+pwd - Outputs the current directory.
+Example: pwd
+mkdir - Create a new directory.
+mkdir Directory - Creates "Directory".
+Example: mkdir /home/Directory
+rmdir - Remove an empty directory.
+rmdir Directory - Deletes "Directory".
+Example: rmdir /home/Directory
+ 
+rm - Delete files and directories.
+rm file - Deletes "file".
+rm -r Directory - Deletes "Directory" recursively.
+Example: rm -rf /home/Directory
+cp - Copy files or directories.
+cp file new_file - Copies "file" to "new_file".
+cp -r Directory new_directory - Copies "Directory" recursively.
+Example: cp -r Directory /backup/
+mv - Move or rename files and directories.
+mv file new_file - Renames "file" to "new_file".
+Example: mv file /home/Directory/
+touch - Create an empty file.
+touch file - Creates "file".
+Example: touch /home/Directory/newfile
+cat - Concatenate and display file contents.
+cat file - Shows contents of "file".
+Example: cat file
+ 
+less - View file content interactively.
+less file - Opens "file" in viewer.
+Example: less file
+more - View file content page-by-page.
+more file - Views file with paging.
+Example: more file
+head - Show the first few lines of a file.
+head -n 5 file - Shows first 5 lines.
+Example: head file
+tail - Show the last few lines of a file.
+tail -n 5 file - Shows last 5 lines.
+tail -f file - Shows last lines with live updates.
+Example: tail -f /var/log/syslog
+find - Search for files and directories.
+find Directory -name "*.txt" - Searches for .txt files.
+Example: find /home -type f -name "*.sh"
+locate - Find files by name (needs mlocate package).
+locate file - Searches for "file".
+Example: locate file
+ 
+du - Disk usage of files and directories.
+du -sh Directory - Shows size of "Directory".
+Example: du -h Directory
+df - Display disk space usage.
+df -h - Disk usage in human-readable format.
+Example: df -h
+stat - Display detailed file or directory status.
+stat file - Shows stats of "file".
+Example: stat file
+tree - Show directory structure in tree format.
+tree Directory - Displays "Directory" structure.
+Example: tree /home
+ 
+File Permissions and Ownership
+**********************************
+chmod - Change file permissions.
+chmod 755 file - Sets permissions for "file".
+Example: chmod +x script.sh
+chown - Change file ownership.
+chown user file - Changes owner to "user".
+Example: chown root file
+chgrp - Change group ownership.
+chgrp group file - Changes group to "group".
+Example: chgrp admin file
+umask - Set default permissions for new files.
+umask 022 - Default file permissions.
+Example: umask
+ 
+Process Management
+********************
+ps - Show active processes.
+ps aux - Shows all processes.
+Example: ps aux | grep nginx
+top - Monitor system processes in real time.
+top - Live view of processes.
+Example: top
+htop - Enhanced process viewer (requires htop).
+htop - Interactive process viewer.
+Example: htop
+kill - Terminate a process by ID.
+kill 1234 - Ends process with PID 1234.
+Example: kill 1234
+killall - Kill processes by name.
+killall firefox - Kills all "firefox" processes.
+Example: killall nginx
+pkill - Kill processes by pattern.
+pkill -u user - Kills all processes for "user".
+Example: pkill -u john
+ 
+Networking
+**************
+ping - Check network connectivity.
+ping google.com - Sends ping requests.
+Example: ping -c 4 google.com
+ifconfig - Display network configuration (deprecated).
+ifconfig - Shows network interfaces.
+Example: ifconfig
+traceroute - Track packet route to destination.
+traceroute google.com - Shows route to "google.com".
+Example: traceroute google.com
+nslookup - Query DNS records.
+nslookup google.com - DNS lookup for "google.com".
+Example: nslookup example.com
+netstat - Network connections, routing tables.
+netstat -tuln - Lists open ports.
+Example: netstat -an
+ 
+Compression and Archiving
+****************************
+tar - Archive multiple files.
+tar -cvf archive.tar Directory - Creates a tar archive.
+Example: tar -xvf archive.tar
+zip - Compress files into a zip archive.
+zip archive.zip file1 file2 - Creates "archive.zip".
+Example: zip -r archive.zip Directory
+unzip - Extract files from a zip archive.
+unzip archive.zip - Extracts "archive.zip".
+Example: unzip archive.zip
+gzip - Compress a file.
+gzip file - Compresses "file" as "file.gz".
+Example: gzip -d file.gz
+bzip2 - Compress with bzip2.
+bzip2 file - Compresses "file".
+Example: bzip2 -d file.bz2
+ 
+System Information
+*******************
+uname - Display system information.
+uname -a - Full system details.
+Example: uname -r
+uptime - Show system uptime.
+uptime - Outputs how long system has been up.
+Example: uptime
+free - Memory usage.
+free -h - Shows memory in human-readable form.
+Example: free
+dmesg - Print or control kernel messages.
+dmesg | less - Shows boot logs.
+Example: dmesg | grep error
+df - Disk space usage of filesystems.
+df -h - Human-readable format.
+Example: df /home
+ 
+User Management
+****************
+useradd - Create a new user.
+useradd username - Adds "username".
+Example: useradd admin
+usermod - Modify user accounts.
+usermod -aG sudo user - Adds "user" to "sudo" group.
+Example: usermod -aG docker user
+passwd - Change user password.
+passwd user - Changes password for "user".
+Example: passwd root
+whoami - Display the current logged-in user.
+whoami - Shows username.
+Example: whoami
+
+Data Manipulation
+********************
+awk - Pattern scanning and processing.
+awk '{print $1}' file - Prints first column.
+Example: awk '{print $2}' file
+sed - Stream editor for modifying files.
+sed 's/old/new/' file - Replace text.
+Example: sed -i 's/foo/bar/g' file
+sort - Sort file content.
+sort file - Sorts file lines.
+Example: sort file
+uniq - Report or omit repeated lines.
+uniq file - Removes duplicates.
+Example: uniq -c file
+grep - Search within files.
+grep "pattern" file - Searches for "pattern".
+Example: grep -i error file
+ 
+File and Directory Management (Continued)
+*******************************
+wc - Count lines, words, and characters in a file.
+Usage: wc file - Displays line, word, and character counts for "file".
+Example: wc -l file - Counts lines in "file".
+ln - Create links between files.
+Usage: ln file link_name - Creates a hard link.
+ln -s file link_name - Creates a symbolic (soft) link.
+Example: ln -s /path/to/file symlink_name
+alias - Create command shortcuts.
+Usage: alias ll='ls -la' - Creates an alias for ls -la.
+Example: alias dir='ls -d */'
+unalias - Remove an alias.
+Usage: unalias ll - Removes the alias "ll".
+Example: unalias dir
+rename - Rename multiple files.
+Usage: rename 's/old/new/' *.txt - Renames files by replacing "old" with "new" in .txt files.
+Example: rename 's/2023/2024/' *.log
+ 
+Process Management (Continued)
+*******************************
+bg - Run a job in the background.
+Usage: bg - Resumes a paused job in the background.
+Example: bg %1 - Backgrounds job number 1.
+fg - Bring a job to the foreground.
+Usage: fg %1 - Brings job number 1 to the foreground.
+Example: fg %2
+jobs - List all active jobs.
+Usage: jobs - Displays active jobs with their statuses.
+Example: jobs -l
+nice - Run a command with adjusted priority.
+Usage: nice -n 10 command - Runs a command with priority 10.
+Example: nice -n 15 ./script.sh
+renice - Change the priority of a running process.
+Usage: renice -n 5 -p PID - Changes the priority of process "PID".
+Example: renice -n 10 -p 1234
+ 
+nohup - Run a command immune to hangups.
+Usage: nohup command & - Executes command, ignoring hangups.
+Example: nohup ./script.sh &
+pgrep - Find processes by name.
+Usage: pgrep process_name - Finds process IDs with the specified name.
+Example: pgrep nginx
+pmap - Display memory map of a process.
+Usage: pmap PID - Shows memory details of process "PID".
+Example: pmap 1234
+uptime - Display system uptime and load.
+Usage: uptime - Shows system uptime and average load.
+Example: uptime
+
+Networking (Continued)
+************************
+curl - Transfer data to/from a server.
+Usage: curl URL - Fetches data from URL.
+Example: curl -O https://example.com/file.txt
+wget - Download files from the internet.
+Usage: wget URL - Downloads file from the specified URL.
+Example: wget https://example.com/file.zip
+scp - Securely copy files between hosts.
+Usage: scp source_file user@remote:/path - Copies file to a remote server.
+Example: scp file.txt user@remote- server:/home/user
+rsync - Synchronize files and directories.
+Usage: rsync -av source/ destination/ - Syncs source to destination.
+Example: rsync -avz Directory user@remote:/backup/
+ 
+telnet - Connect to remote servers (insecure).
+Usage: telnet host port - Connects to a specified host and port.
+Example: telnet localhost 80
+netcat (nc) - Network utility for debugging.
+Usage: nc -zv host port - Checks if port is open on the host.
+Example: nc -zv google.com 443
+ip route - Display or manipulate IP routing table.
+Usage: ip route show - Shows the routing table.
+Example: ip route add 192.168.1.0/24 dev eth0
+dig - DNS lookup tool.
+Usage: dig domain.com - Fetches DNS records for a domain.
+Example: dig +short google.com
+arp - Display or manipulate ARP cache.
+Usage: arp -a - Lists the ARP table.
+Example: arp -d IP_ADDRESS
+ 
+Text Processing
+*****************
+echo - Display a line of text.
+Usage: echo "Hello World" - Outputs text to the screen.
+Example: echo $PATH
+tr - Translate characters.
+Usage: echo "text" | tr 'a-z' 'A-Z' - Converts lowercase to uppercase.
+Example: echo "hello" | tr 'a-z' 'A-Z'
+cut - Remove sections from lines.
+Usage: cut -d ' ' -f 1 file - Displays the first field from each line.
+Example: cut -d: -f1 /etc/passwd
+paste - Merge lines of files.
+Usage: paste file1 file2 - Joins lines from two files.
+Example: paste file1 file2
+xargs - Execute commands from standard input.
+Usage: cat file | xargs echo - Passes arguments to echo.
+Example: find . -name "*.log" | xargs rm
+ 
+nl - Number lines in a file.
+Usage: nl file - Numbers each line.
+Example: nl file
+sort - Sort lines in a file.
+Usage: sort file - Sorts lines alphabetically.
+Example: sort -n file (numerical sort)
+uniq - Filter out repeated lines.
+Usage: uniq file - Removes duplicate lines.
+Example: sort file | uniq
+tee - Read from input and write to files.
+Usage: command | tee file - Writes output to file and displays it.
+Example: ls | tee file
+ 
+Scheduling and Automation
+***************************
+cron - Schedule regular tasks.
+Usage: crontab -e - Opens the cron editor.
+Example: 0 5 * * * /path/to/script.sh (Runs script daily at 5 AM)
+at - Schedule one-time tasks.
+Usage: echo "command" | at time - Executes command at specified time.
+Example: echo "backup.sh" | at 2:00 AM
+ 
+System Monitoring and Information
+************************************
+vmstat - Reports virtual memory statistics.
+Usage: vmstat - Shows memory usage.
+Example: vmstat 5 (updates every 5 seconds)
+iostat - Reports CPU and I/O statistics.
+Usage: iostat - Shows CPU and disk I/O stats.
+Example: iostat -d 2
+lsof - List open files.
+Usage: lsof - Shows open files and processes.
+Example: lsof | grep file
+ss - Display socket statistics.
+Usage: ss -tuln - Shows listening ports and connections.
+Example: ss -s
+free - Show memory usage.
+Usage: free -h - Memory stats in human-readable format.
+Example: free
+mpstat - Display CPU usage.
+Usage: mpstat - Shows per-processor CPU usage.
+Example: mpstat -P ALL 1
+sar - Collect and report system activity.
+Usage: sar -u 1 5 - CPU usage every second for 5 times.
+Example: sar -r (memory stats)
+ 
+
+Security and Access Control
+*******************************
+iptables - Set up firewall rules.
+Usage: iptables -L - Lists rules.
+Example: iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+chmod - Change file permissions.
+Usage: chmod 755 file - Sets permissions.
+Example: chmod +x script.sh
+chown - Change file ownership.
+Usage: chown user:group file - Changes ownership.
+Example: chown user file
+passwd - Change user password. - Usage: passwd user - Sets a password for "user". - Example: passwd (for current user) 
+
+
